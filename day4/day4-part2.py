@@ -16,3 +16,7 @@ for i, line in enumerate(lines, start=1):
     scores.append(score)
 
 print(f"Score {sum(scores)}")
+#Store copies after each game
+#Card 1 wins 4 times
+#add to list 2,3,4,5
+#check card# to list and run count more times?
