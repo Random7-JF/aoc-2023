@@ -1,3 +1,4 @@
 # AOC 2023
 
-## Python
+## Language
+Attempting to write this in python so I can learn more about Pythong
