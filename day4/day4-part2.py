@@ -1,4 +1,4 @@
-data = open("/home/random/projects/aoc-2023/day4/day4-test.input")
+data = open("/home/random/projects/aoc-2023/day4/day4.input")
 lines = data.read().splitlines()
 wins = dict()
 for i, line in enumerate(lines,start=1):
@@ -10,16 +10,26 @@ for i, line in enumerate(lines, start=1):
     winnerCard = card[0].replace(f"Card {i}:", "").strip().split(" ")
     playerCard = card[1].strip().split(" ")
     numberOfCardsPerRound = wins[i]
-    cardsWon = 0
-    while numberOfCardsPerRound > 0:
+    matches = 0
+    gamewon = 0
+    gamesPlayed = wins[i]
+    while gamesPlayed > 0:
         for pick in playerCard:
             if pick.isnumeric() and pick in winnerCard:
-                cardsWon += 1
-        numberOfCardsPerRound -= 1
-    while cardsWon > 0:
-        print(f"Index: {i} - cardsWon: {cardsWon} - Len: {len(wins)}")
-        index = min(i+cardsWon, len(wins))
-        wins[index] = wins[index]+1
-        cardsWon -= 1
+                matches += 1
+        while matches > 0:
+            index = i+matches
+            current = wins[index]
+            print(f"Adding {i} to {current} : {wins[index]}")
+            wins[index] = current + 1 #i = game number
+            matches -= 1
+        gamesPlayed -=1
+    print(f"Game: {i} Matches: {matches} Gamewon: {gamewon}")
+    # + {game#} to next {matches}
+    # + 1       to next 4
+    #   2:2, 3:3, 4:4:, 5:
+
     print(f"Wins after game {i} - {wins}")
-print(f"Wins: {sum(wins)}")
+
+sum = sum(wins.values())
+print(f"Sum: {sum}")
