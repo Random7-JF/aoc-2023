@@ -25,11 +25,6 @@ for i, line in enumerate(lines, start=1):
             matches -= 1
         gamesPlayed -=1
     print(f"Game: {i} Matches: {matches} Gamewon: {gamewon}")
-    # + {game#} to next {matches}
-    # + 1       to next 4
-    #   2:2, 3:3, 4:4:, 5:
-
     print(f"Wins after game {i} - {wins}")
-
 sum = sum(wins.values())
 print(f"Sum: {sum}")
