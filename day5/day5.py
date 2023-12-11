@@ -26,7 +26,8 @@ def scanner(index, input, destination):
 for index, line in enumerate(lines):
     s = line.split(":")
     if s[0] == "seeds":
-        seeds.append(s[1].strip())
+        for c in s[1].strip().split(" "):
+            seeds.append(c)
     elif s[0] == "seed-to-soil map":
         scanner(index, lines, seedToSoil)
     elif s[0] == "soil-to-fertilizer map":
@@ -42,7 +43,6 @@ for index, line in enumerate(lines):
     elif s[0] == "humidity-to-location map":
         scanner(index, lines, humidityToLoc)
 
-
 print(f"Found seeds: {seeds}")
 print(f"Found seed-to-soil: {seedToSoil}")
 print(f"Found soil-to-fertilizer: {soilToFert}")
@@ -55,3 +55,4 @@ print(f"Found humidity-to-location : {humidityToLoc}")
 
 # seed-to-soil
 # dest range | src range | range length
+
