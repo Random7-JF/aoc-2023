@@ -1,9 +1,22 @@
-data = open("/home/random/projects/aoc-2023/day6/day6-test.input")
+data = open("/home/random/projects/aoc-2023/day6/day6-test.input") 
 lines = data.read().splitlines()
 
-## Time - Distance
-races = dict()
-for index, line in enumerate(lines, start=1):
-    s = line.strip().split(":")
-    print(f"{s[1].strip()}")
-    x = s[1].strip().split(" ")
+times = []
+distance = []
+nums = []
+for line in lines:
+    l = line.split(":")
+    x = l[1].split(" ")
+    num = ""
+    for i, y in enumerate(x):
+        print(f"y: {y}")
+        if i >= len(x) - 1:
+            print(f"last num found")
+        if y != "":
+            nums.append(y)
+
+times = nums[0:3]
+distance = nums[3:6]
+print(f"times: {times} distance: {distance}") 
+
+
