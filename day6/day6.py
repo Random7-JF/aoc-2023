@@ -19,4 +19,9 @@ times = nums[0:3]
 distance = nums[3:6]
 print(f"times: {times} distance: {distance}") 
 
+for race in times:
 
+hold = 5 
+dur = int(times[0]) - hold
+total = dur * hold
+print(f"hold: {hold} dur:{dur} total:{total}")
