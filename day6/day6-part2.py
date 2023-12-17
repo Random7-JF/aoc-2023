@@ -10,24 +10,17 @@ for line in lines:
     nums.append(num)
 
 print(f"numbers: {nums}")
-time = int(nums[0])
-distance = int(nums[1])
-print(f"times: {time} distance: {distance}")
+race_duration = int(nums[0])
+race_record = int(nums[1])
+print(f"race_duration: {race_duration} - race_record: {race_record}")
 
-winners = dict()
-hold = 0
 wins = 0
-losses = 0
-while hold < time:
-    dur = distance - hold
-    total = dur * hold
-    print(f"hold: {hold} dur:{dur} total:{total}")
-    if distance < total:
+speed = 0
+while speed < race_duration:
+    time = race_duration - speed
+    result = speed * time
+    speed += 1
+    if result > race_record:
         wins += 1
-    else:
-        losses += 1
-    hold += 1
-winners["race"] = wins
-print(f"winners: {winners}")
-print(f"Lost: {losses}")
-print(f"times: {time} distance: {distance}")
+
+print(f"Wins: {wins}")
